@@ -1,20 +1,33 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div mat-card>
+    <h2 mat-card-title>Welcome to the {{ title }}!</h2>
+  <div mat-card-content>
+To use this, type the number shown on the right and press next. 
+If the truck unlocks, press the save code button.
+If the keypad flashes (the lockout happened), wait for the flashing to stop or reset using your ignition.
+The first code may not be the factory code, so do all of the numbers to get both codes.
+Follow your manual for resetting the personal code.
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<h2>Type this number on the keypad: {{currentNumber[4]}}</h2>
+
+
+  <mat-grid-list cols="5" rowHeight="2:1">
+    <mat-grid-tile>{{ currentNumber[0] }}</mat-grid-tile>
+    <mat-grid-tile>{{ currentNumber[1] }}</mat-grid-tile>
+    <mat-grid-tile>{{ currentNumber[2] }}</mat-grid-tile>
+    <mat-grid-tile>{{ currentNumber[3] }}</mat-grid-tile>
+    <mat-grid-tile matRipple style="font-weight: bold; color: blue; font-size: 2em;" #ripple>{{ currentNumber[4] }}</mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+
+  <button (click)="onStartOver()" mat-raised-button>Start Over</button>
+  <button (click)="onMatched()" mat-raised-button>Got a Match</button>
+  <button (click)="onNextNumber()" mat-raised-button>Next</button>
+
+
+<mat-list>
+ <mat-list-item *ngFor="let match of matches"> {{match}} </mat-list-item>
+</mat-list>
+  <button (click)="onClearMatches()" mat-raised-button>Clear Matches</button>
