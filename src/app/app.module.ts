@@ -10,18 +10,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { CarouselItemDirective } from './carousel-item.directive';
-import { SliderComponent } from './slider/slider.component';
-import { SliderItemDirective } from './slider/slider-item.directive';
-
 @NgModule({
   declarations: [
-    AppComponent,
-    CarouselComponent,
-    CarouselItemDirective,
-    SliderComponent,
-    SliderItemDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
