@@ -44,6 +44,14 @@ export class KeycodeService {
     this.position.next(val);
   }
 
+  lockedOut(): any {
+    const val = this.position.getValue() - 4;
+    for (let i = 0; i < 5; i++) {
+      this.position.next(0);
+    }
+    this.position.next(val);
+  }
+
   getPosition(): number {
     return this.position.getValue();
   }

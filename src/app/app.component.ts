@@ -70,6 +70,6 @@ export class AppComponent implements OnInit {
 
   onLockout(): void {
     this.matches.push({numbers: this.currentNumber, matchType: MatchType.Lockout, position: this.keycodeService.getPosition()});
-    this.keycodeService.matched();
+    this.keycodeService.lockedOut();
   }
 }
