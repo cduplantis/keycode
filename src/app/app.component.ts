@@ -2,6 +2,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { KeycodeService } from './keycode.service';
 import { MatRipple } from '@angular/material/core';
 
+enum MatchType {
+  Match = 'Match',
+  Lockout = 'Lockout'
+}
+
+interface Match {
+  numbers: string[];
+  position: number;
+  matchType: MatchType;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +24,7 @@ export class AppComponent implements OnInit {
 
   title = 'Ford KeyCode Assistant';
   currentNumber: string[] = ['', '', '', '', ''];
-  matches: string[][] = [];
+  matches: Match[] = [];
 
   constructor(private keycodeService: KeycodeService) {
     this.keycodeService = keycodeService;
@@ -45,7 +56,7 @@ export class AppComponent implements OnInit {
   }
 
   onMatched(): void {
-    this.matches.push(this.currentNumber);
+    this.matches.push({numbers: this.currentNumber, matchType: MatchType.Match, position: this.keycodeService.getPosition()});
     this.keycodeService.matched();
   }
 
@@ -55,5 +66,10 @@ export class AppComponent implements OnInit {
 
   onClearMatches(): void {
     this.matches = [];
+  }
+
+  onLockout(): void {
+    this.matches.push({numbers: this.currentNumber, matchType: MatchType.Lockout, position: this.keycodeService.getPosition()});
+    this.keycodeService.matched();
   }
 }

@@ -43,4 +43,8 @@ export class KeycodeService {
     }
     this.position.next(val);
   }
+
+  getPosition(): number {
+    return this.position.getValue();
+  }
 }

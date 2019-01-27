@@ -24,10 +24,11 @@ Follow your manual for resetting the personal code.
 
   <button (click)="onStartOver()" mat-raised-button>Start Over</button>
   <button (click)="onMatched()" mat-raised-button>Got a Match</button>
+  <button (click)="onLockout()" mat-raised-button>Got Locked Out</button>
   <button (click)="onNextNumber()" mat-raised-button>Next</button>
 
 
 <mat-list>
- <mat-list-item *ngFor="let match of matches"> {{match}} </mat-list-item>
+ <mat-list-item *ngFor="let match of matches"> {{match.numbers}} {{match.matchType}} </mat-list-item>
 </mat-list>
   <button (click)="onClearMatches()" mat-raised-button>Clear Matches</button>
