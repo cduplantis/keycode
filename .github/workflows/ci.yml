@@ -1,8 +1,8 @@
 name: Keycode CI/CD
 on:
   push:
-    branches:
-      - main
+    tags: 
+      - '*'
 jobs:
   ci:
     runs-on: ubuntu-latest
