@@ -19,7 +19,7 @@ interface Match {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @ViewChild(MatRipple) ripple: MatRipple;
+  @ViewChild(MatRipple, { static: true }) ripple: MatRipple;
 
 
   title = 'Ford KeyCode Assistant';
