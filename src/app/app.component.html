@@ -2,16 +2,15 @@
 <div mat-card>
     <h2 mat-card-title>Welcome to the {{ title }}!</h2>
   <div mat-card-content>
-To use this, type the number shown on the right and press next. 
-If the truck unlocks, press the save code button.
-If the keypad flashes (the lockout happened), wait for the flashing to stop or reset using your ignition.
-The first code may not be the factory code, so do all of the numbers to get both codes.
+  The purpose of this is to help owners of Ford vehicles to retreive their lost keyless entry codes. To use this, enter the number shown on the right on the keypad of the vehicle. 
+If the truck unlocks, press the save code button. Note that there may be multiple codes. Only one is a master code which is required to set/unset the personal codes.
+If the keypad flashes, then a lockout has occured. This is to slow down burglars. Wait for the flashing to stop or reset by turning your ignition on and off.
+Remember to continue to do all of the numbers until you get the master code.
 Follow your manual for resetting the personal code.
 </div>
 
+
 <h2>Type this number on the keypad: {{currentNumber[4]}}</h2>
-
-
   <mat-grid-list cols="5" rowHeight="2:1">
     <mat-grid-tile>{{ currentNumber[0] }}</mat-grid-tile>
     <mat-grid-tile>{{ currentNumber[1] }}</mat-grid-tile>
@@ -19,6 +18,7 @@ Follow your manual for resetting the personal code.
     <mat-grid-tile>{{ currentNumber[3] }}</mat-grid-tile>
     <mat-grid-tile matRipple style="font-weight: bold; color: blue; font-size: 2em;" #ripple>{{ currentNumber[4] }}</mat-grid-tile>
   </mat-grid-list>
+  <div>These are the last 5 you have entered. If you get confused, you can reenter them, and then continue with the <em>next</em>.</div>
 
 </div>
 
